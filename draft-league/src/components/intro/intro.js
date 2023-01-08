@@ -33,7 +33,7 @@ export default function Intro() {
         </button>
       </form>
       <h3>Number of Teams: {numberOfTeams}</h3>
-      <TeamCard value={numberOfTeams} />
+      <TeamCard input={numberOfTeams} />
     </div>
   );
 }
