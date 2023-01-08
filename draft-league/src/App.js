@@ -1,11 +1,10 @@
 import "./App.css";
+import Intro from "./components/intro/intro";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Welcome to Draft League!</h1>
-      </header>
+      <Intro />
     </div>
   );
 }
