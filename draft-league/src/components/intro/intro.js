@@ -19,7 +19,7 @@ export default function Intro() {
     console.log(numberOfTeams);
     return new Array(+numberOfTeams)
       .fill(0)
-      .map((x, i) => <TeamCard key={i} />);
+      .map((x, i) => <TeamCard key={i} numberOfTeams={numberOfTeams} />);
   };
 
   return (
@@ -36,6 +36,3 @@ export default function Intro() {
     </div>
   );
 }
-/*{numberOfTeams.map((item, i) => (
-        <TeamCard text={item} key={i} />
-      ))}*/

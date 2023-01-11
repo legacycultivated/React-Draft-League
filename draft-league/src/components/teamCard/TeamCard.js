@@ -1,11 +1,11 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-export default function TeamCard(key) {
+export default function TeamCard() {
   return (
     <div>
       <Card className="card">
-        <Card.Title>Team {key}</Card.Title>
+        <Card.Title>Team </Card.Title>
         <input type="text"></input>
         <Button>Add</Button>
         <ol></ol>
