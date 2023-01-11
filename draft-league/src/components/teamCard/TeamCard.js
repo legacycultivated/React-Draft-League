@@ -9,6 +9,8 @@ export default function TeamCard({ teamNumber }) {
   const [pokemonList, setPokemonList] = useState([]);
   const [error, setError] = useState("");
 
+  console.log(error);
+  console.log(pokemon);
   async function handleSubmit(e) {
     e.preventDefault();
     try {
