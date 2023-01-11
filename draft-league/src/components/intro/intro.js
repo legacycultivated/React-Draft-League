@@ -2,37 +2,45 @@ import TeamCard from "../teamCard/TeamCard";
 import IntroText from "./IntroText";
 import "./intro.css";
 import React from "react";
-import Button from "../button/Button";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 export default function Intro() {
-  const [numberOfTeams, setNumberOfTeams] = useState(0);
+  const [teamCount, setTeamCount] = useState(0);
+  const [teams, setTeams] = useState([]);
 
-  const numberOfTeamsRef = useRef(null);
-
-  const handleSubmitButtonClick = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    setNumberOfTeams(numberOfTeamsRef.current.value);
-  };
-
-  const createTeams = () => {
-    console.log(numberOfTeams);
-    return new Array(+numberOfTeams)
-      .fill(0)
-      .map((x, i) => <TeamCard key={i} numberOfTeams={numberOfTeams} />);
-  };
+    if (parseInt(teamCount) <= 0) {
+      setTeams([]);
+    } else {
+      setTeams(Array.from({ length: parseInt(teamCount) }, (_, i) => i + 1));
+    }
+  }
 
   return (
     <div>
       <IntroText />
 
-      <form>
-        <input type="text" id="NumberOfTeams" ref={numberOfTeamsRef} />
-        <Button onClick={handleSubmitButtonClick} text="Submit" />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="number"
+          value={teamCount}
+          onChange={(e) =>
+            e.target.valueAsNumber > 0 && setTeamCount(e.target.valueAsNumber)
+          }
+        />
+        <Button type="submit" text="Submit">
+          Generate Teams
+        </Button>
       </form>
 
       <h3>Number of Teams: </h3>
-      {numberOfTeams > 0 && createTeams()}
+      <div>
+        {teams.map((teamNumber) => (
+          <TeamCard key={teamNumber} teamNumber={teamNumber} />
+        ))}
+      </div>
     </div>
   );
 }
