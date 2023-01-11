@@ -1,11 +1,13 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
+import "./teamCard.css";
 
 export default function TeamCard({ teamNumber }) {
   const [pokemonName, setPokemonName] = useState("");
   const [pokemon, setPokemon] = useState({});
   const [pokemonList, setPokemonList] = useState([]);
+  const [error, setError] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -13,25 +15,39 @@ export default function TeamCard({ teamNumber }) {
       const response = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
       );
+      if (response.status === 404) {
+        alert("Check spelling or try using all lowercase.");
+        throw new Error("Not Found");
+      }
       const data = await response.json();
       setPokemon(data);
-      setPokemonList([...pokemonList, pokemon]);
+      setPokemonList([...pokemonList, data]);
+      setError("");
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      setError(
+        "Pokemon not found, Please check the name and try again. Try name in all lowercase."
+      );
     }
   }
 
+  function handleInputChange(e) {
+    const name = e.target.value;
+    setPokemonName(name.toLowerCase());
+  }
+
   return (
-    <div>
+    <div className="team">
       <Card className="card">
         <Card.Title>Team {teamNumber} </Card.Title>
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <label>
             Enter a Pokemon name:
             <input
+              className="input"
               type="text"
               value={pokemonName}
-              onChange={(e) => setPokemonName(e.target.value)}
+              onChange={handleInputChange}
             />
           </label>
           <Button type="submit">Add Pokemon</Button>
@@ -39,7 +55,7 @@ export default function TeamCard({ teamNumber }) {
         <div>
           <ol>
             {pokemonList.map((pokemon, index) => (
-              <li key={index}>
+              <li className="list" key={index}>
                 <h3>{pokemon.name}</h3>
                 {pokemon.sprites && (
                   <img src={pokemon.sprites.front_default} alt={pokemon.name} />
