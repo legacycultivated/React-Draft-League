@@ -42,6 +42,10 @@ export default function TeamCard({ teamNumber, deleteTeam }) {
     deleteTeam(teamNumber);
   }
 
+  function handleDeletePokemon(index) {
+    setPokemonList(pokemonList.filter((_, i) => i !== index));
+  }
+
   return (
     <div className="team">
       <Card className="card">
@@ -67,6 +71,7 @@ export default function TeamCard({ teamNumber, deleteTeam }) {
                 {pokemon.sprites && (
                   <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                 )}
+                <Button onClick={() => handleDeletePokemon(index)}>X</Button>
               </li>
             ))}
           </ol>
