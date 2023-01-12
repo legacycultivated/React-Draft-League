@@ -18,6 +18,10 @@ export default function Intro() {
     }
   }
 
+  function handleDelete(teamNumber) {
+    setTeams(teams.filter((tn) => tn !== teamNumber));
+  }
+
   return (
     <div className="intro">
       <IntroText />
@@ -41,10 +45,7 @@ export default function Intro() {
           <TeamCard
             key={teamNumber}
             teamNumber={teamNumber}
-            deleteTeam={function deleteTeam(teams) {
-              if (Array.isArray(teams))
-                setTeams(teams.filter((tn) => tn !== teamNumber));
-            }}
+            deleteTeam={handleDelete}
           />
         ))}
       </div>
