@@ -1,8 +1,15 @@
 .intro {
+  position: relative;
   text-align: center;
   margin: 20px auto;
   padding: 10px;
   width: 800px;
   background-color: #9e9999;
   border-radius: 10px;
+  overflow: hidden;
+  background-image: url(./../../../public/pokeball.png);
+  color: rgba(255, 255, 255, 0.899);
+  text-shadow: 2px 2px #696969;
+  font-weight: bold;
+  font-size: medium;
 }

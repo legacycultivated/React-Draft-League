@@ -1,3 +1,5 @@
+import "./introText.css";
+
 export default function IntroText() {
   return (
     <div>
