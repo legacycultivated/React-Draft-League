@@ -62,7 +62,9 @@ export default function TeamCard({ teamNumber, deleteTeam }) {
           </label>
           <Button type="submit">Add Pokemon</Button>
         </form>
-        <Button onClick={handleDelete}>X</Button>
+        <Button onClick={handleDelete} className="deleteTeam">
+          X
+        </Button>
         <div>
           <ol>
             {pokemonList.map((pokemon, index) => (
@@ -71,7 +73,12 @@ export default function TeamCard({ teamNumber, deleteTeam }) {
                 {pokemon.sprites && (
                   <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                 )}
-                <Button onClick={() => handleDeletePokemon(index)}>X</Button>
+                <Button
+                  onClick={() => handleDeletePokemon(index)}
+                  className="deletePoke"
+                >
+                  X
+                </Button>
               </li>
             ))}
           </ol>
