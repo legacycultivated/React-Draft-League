@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.38df0c1e.css",
+    "main.js": "/react-gh-pages/static/js/main.d2dc7d05.js",
+    "static/js/787.18e2899b.chunk.js": "/react-gh-pages/static/js/787.18e2899b.chunk.js",
+    "static/media/pokemonArena.png": "/react-gh-pages/static/media/pokemonArena.5774f4a11d350bc1c272.png",
+    "static/media/pokeball.png": "/react-gh-pages/static/media/pokeball.00fdc01b40be45e132c5.png",
+    "index.html": "/react-gh-pages/index.html",
+    "main.38df0c1e.css.map": "/react-gh-pages/static/css/main.38df0c1e.css.map",
+    "main.d2dc7d05.js.map": "/react-gh-pages/static/js/main.d2dc7d05.js.map",
+    "787.18e2899b.chunk.js.map": "/react-gh-pages/static/js/787.18e2899b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38df0c1e.css",
+    "static/js/main.d2dc7d05.js"
+  ]
+}
