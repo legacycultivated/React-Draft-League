@@ -19,7 +19,7 @@ export default function Intro() {
   }
 
   return (
-    <div>
+    <div className="intro">
       <IntroText />
 
       <form onSubmit={handleSubmit}>
