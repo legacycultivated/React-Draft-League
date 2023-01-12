@@ -60,7 +60,9 @@ export default function TeamCard({ teamNumber, deleteTeam }) {
               onChange={handleInputChange}
             />
           </label>
-          <Button type="submit">Add Pokemon</Button>
+          <Button type="submit" className="addPoke">
+            Add Pokemon
+          </Button>
         </form>
         <Button onClick={handleDelete} className="deleteTeam">
           X
