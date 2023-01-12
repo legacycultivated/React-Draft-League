@@ -38,7 +38,14 @@ export default function Intro() {
       <h3>Number of Teams: </h3>
       <div>
         {teams.map((teamNumber) => (
-          <TeamCard key={teamNumber} teamNumber={teamNumber} />
+          <TeamCard
+            key={teamNumber}
+            teamNumber={teamNumber}
+            deleteTeam={function deleteTeam(teams) {
+              if (Array.isArray(teams))
+                setTeams(teams.filter((tn) => tn !== teamNumber));
+            }}
+          />
         ))}
       </div>
     </div>

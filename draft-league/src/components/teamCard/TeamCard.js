@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
 import "./teamCard.css";
 
-export default function TeamCard({ teamNumber }) {
+export default function TeamCard({ teamNumber, deleteTeam }) {
   const [pokemonName, setPokemonName] = useState("");
   const [pokemon, setPokemon] = useState({});
   const [pokemonList, setPokemonList] = useState([]);
@@ -38,6 +38,10 @@ export default function TeamCard({ teamNumber }) {
     setPokemonName(name.toLowerCase());
   }
 
+  function handleDelete() {
+    deleteTeam(teamNumber);
+  }
+
   return (
     <div className="team">
       <Card className="card">
@@ -54,6 +58,7 @@ export default function TeamCard({ teamNumber }) {
           </label>
           <Button type="submit">Add Pokemon</Button>
         </form>
+        <Button onClick={handleDelete}>X</Button>
         <div>
           <ol>
             {pokemonList.map((pokemon, index) => (
