@@ -11,3 +11,9 @@ This project was built using React.js and the Create-React-App. This project is 
 ### Conclusion
 
 My friends and I enjoyed building this project from scratch with nothing but our ideas and creativity. Even though we are all juniors and not at all experts in design we were excited to bring our thoughts to life. This is the second run through of this particular project. We first wrote this project in plain javascript then re-created in React to practice and learn.
+
+### Tasks Still Needed To Be Done
+
+1. Add proper media queries to CSS to make everything mobile responsive
+2. Update or find new API with the updated current pokemon
+3. Design app to look more appealing and improve user experience
